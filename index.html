@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasir Cemerlang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Kasir Cemerlang</h1>
+         
+    <!-- menu grid 2 kolom -->
+    <div class="menu-grid">
+      <button class="menu-btn" onclick="tambahKeKeranjang('mie ayam', 15000)">mie ayam  15k</button>
+      <button class="menu-btn" onclick="tambahKeKeranjang('ayam geprek', 13000)">ayam geprek jago   13k</button>
+      <button class="menu-btn" onclick="tambahKeKeranjang('nasi goreng', 15000)">nasi goreng pedas   15k</button>
+      <button class="menu-btn" onclick="tambahKeKeranjang('es teh manis', 5000)">es teh manis  5k</button>
+      <button class="menu-btn" onclick="tambahKeKeranjang('donat', 5000)">donat   5k</button>
+      <button class="menu-btn" onclick="tambahKeKeranjang('sate kambing', 25000)">sate kambing   25k</button>
+    </div>
+         
+    <!-- ringkas total dan aksi bayar/reset -->
+    <div class="summary-box">
+      <h3>Total tagihan</h3>
+      <div id="total-harga" class="total-teks">Rp 0</div>
+      <div class="action-btns">
+        <button id="btn-bayar" class="btn-main" onclick="buatTransaksiQR()" disabled>Buat QR</button>
+        <button id="btn-reset" class="btn-reset" onclick="resetKeranjang()">Reset</button>
+      </div>
+    </div>
+         
+    <!-- area tampil qr code -->
+    <div id="qr-section" class="hidden">
+      <h3>ID <span id="tx-id-display">-</span></h3>
+      <canvas id="qr-canvas"></canvas>
+      <div id="status-box" class="status-box status-pending">
+        Status: <strong id="status-teks">Menunggu scan...</strong>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="main.js"></script>
+</body>
+</html>
